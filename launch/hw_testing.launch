@@ -26,7 +26,7 @@
 
         <include file="$(find soccerref)/launch/referee.launch">
             <arg name="half_duration_secs" value="120" />
-            <arg name="use_timer" value="true" />
+            <arg name="use_timer" value="false" />
             <arg name="simulation_mode" value="false" />
         </include>
 
