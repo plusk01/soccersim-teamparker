@@ -13,7 +13,7 @@
         <include file="$(find teamparker)/launch/teamparker.launch">
             <arg name="team_side" value="home" />
             <arg name="sim_mode" value="false" />
-            <arg name="competition_mode" default="false" />
+            <arg name="competition_mode" value="false" />
             <arg name="two_robots" value="true" />
 
             <!-- Outputs to either real world or simulation -->
@@ -25,9 +25,9 @@
 
 
         <include file="$(find soccerref)/launch/referee.launch">
-            <arg name="half_duration_secs" default="120" />
-            <arg name="use_timer" default="true" />
-            <arg name="simulation_mode" default="false" />
+            <arg name="half_duration_secs" value="120" />
+            <arg name="use_timer" value="true" />
+            <arg name="simulation_mode" value="false" />
         </include>
 
     </group>
