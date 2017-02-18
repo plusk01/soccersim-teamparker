@@ -3,6 +3,7 @@
     <!-- declare arg to be passed in -->
     <arg name="team_side" default="home" />
     <arg name="sim_mode" default="true" />
+    <arg name="competition_mode" default="false" />
     <arg name="two_robots" default="true" />
 
     <!-- Outputs to either real world or simulation -->
@@ -23,6 +24,7 @@
                 <arg name="ally_number" value="2" />
                 <arg name="team_side" value="$(arg team_side)" />
                 <arg name="sim_mode" value="$(arg sim_mode)" />
+                <arg name="competition_mode" value="$(arg competition_mode)" />
             </include>
         </group>
 
@@ -34,6 +36,7 @@
                 <arg name="ally_number" value="1" />
                 <arg name="team_side" value="$(arg team_side)" />
                 <arg name="sim_mode" value="$(arg sim_mode)" />
+                <arg name="competition_mode" value="$(arg competition_mode)" />
             </include>
         </group>
 

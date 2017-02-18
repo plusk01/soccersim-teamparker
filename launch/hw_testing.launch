@@ -13,6 +13,7 @@
         <include file="$(find teamparker)/launch/teamparker.launch">
             <arg name="team_side" value="home" />
             <arg name="sim_mode" value="false" />
+            <arg name="competition_mode" default="false" />
             <arg name="two_robots" value="true" />
 
             <!-- Outputs to either real world or simulation -->

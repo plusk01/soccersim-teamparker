@@ -4,15 +4,26 @@
     <arg name="team_side" default="home" />
     <arg name="my_number" default="1" />
     <arg name="ally_number" default="2" />
+
+    <!-- If not in sim_mode or competition_mode, then we are hw_testing -->
     <arg name="sim_mode" default="false" />
+    <arg name="competition_mode" default="false" />
 
     <!-- using which side of the field we are on, determine the appropriate -->
     <!-- connections to the output of the vision system -->
     <arg name="other_side" value="away" if="$(eval team_side == 'home')" />
     <arg name="other_side" value="home" if="$(eval team_side == 'away')" />
+
+    <arg name="game_state_topic" value="/game_state" if="$(eval sim_mode or competition_mode)" />
+    <arg name="game_state_topic" value="/teamparker_testing/game_state" unless="$(eval sim_mode or competition_mode)" />
     
     <!-- Hardware agnostic code -->
     <node name="ai" pkg="teamparker" type="ai_node.py" output="screen">
+
+        <!-- Use the arg 'game_state_topic' to make sure -->
+        <!-- we are listening to the right game_state -->
+        <remap from="game_state" to="$(arg game_state_topic)" />
+
         <remap from="me" to="/vision/$(arg team_side)$(arg my_number)" />
         <remap from="ally" to="/vision/$(arg team_side)$(arg ally_number)" />
         <remap from="opp1" to="/vision/$(arg other_side)1" />
