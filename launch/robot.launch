@@ -14,6 +14,7 @@
     <arg name="other_side" value="away" if="$(eval team_side == 'home')" />
     <arg name="other_side" value="home" if="$(eval team_side == 'away')" />
 
+    <!-- Decide what namespace game_state is in -->
     <arg name="game_state_topic" value="/game_state" if="$(eval sim_mode or competition_mode)" />
     <arg name="game_state_topic" value="/teamparker_testing/game_state" unless="$(eval sim_mode or competition_mode)" />
     
