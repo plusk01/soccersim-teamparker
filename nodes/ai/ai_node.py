@@ -80,7 +80,7 @@ def main():
 
     # This message comes from the soccerref and
     # tells us if we should be playing or not
-    rospy.Subscriber('/game_state', GameState, _handle_game_state)
+    rospy.Subscriber('game_state', GameState, _handle_game_state)
 
     # This is our publisher that tells the controller where we want to be
     pub = rospy.Publisher('desired_position', Pose2D, queue_size=10)
