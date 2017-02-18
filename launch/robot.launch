@@ -4,6 +4,7 @@
     <arg name="team_side" default="home" />
     <arg name="my_number" default="1" />
     <arg name="ally_number" default="2" />
+    <arg name="sim_mode" default="false" />
 
     <!-- using which side of the field we are on, determine the appropriate -->
     <!-- connections to the output of the vision system -->
@@ -24,5 +25,10 @@
         <!-- For simulation, remap the output -->
         <remap from="vel_cmds" to="/$(arg team_side)$(arg my_number)/command" />
     </node>
+
+    <!-- Hardware dependent code (only use if sim_mode == false) -->
+    <group unless="$(arg sim_mode)">
+        <node name="motion" pkg="teamparker" type="motion.py" output="screen" />
+    </group>
 
 </launch>

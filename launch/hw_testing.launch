@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<launch>
+    <group ns="teamparker_testing">
+
+        <!--
+
+        1. Spin up vision node, connect to usb_cam vision
+        2. Spin up each robot (using 'machine' tags)
+        3. Referee node (for game_state messages)
+
+        -->
+
+        <include file="$(find teamparker)/launch/teamparker.launch">
+            <arg name="team_side" value="home" />
+            <arg name="sim_mode" value="false" />
+            <arg name="two_robots" value="true" />
+
+            <!-- Outputs to either real world or simulation -->
+            <arg name="vel_cmd_ally1" value="vel_cmds" />
+            <arg name="vel_cmd_ally2" value="vel_cmds" />
+            <arg name="kick_ally1" value="kick" />
+            <arg name="kick_ally2" value="kick" />
+        </include>
+
+
+        <include file="$(find soccerref)/launch/referee.launch">
+            <arg name="half_duration_secs" default="120" />
+            <arg name="use_timer" default="true" />
+            <arg name="simulation_mode" default="false" />
+        </include>
+
+    </group>
+</launch>
