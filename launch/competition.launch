@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- declare arg to be passed in -->
+    <arg name="team_side" default="home" />
+
+    <!--
+
+    1. Spin up vision node, connect to usb_cam vision
+    2. Spin up each robot (using 'machine' tags)
+
+    -->
+
+    <include file="$(find teamparker)/launch/teamparker.launch">
+        <arg name="team_side" value="$(arg team_side)" />
+        <arg name="sim_mode" value="false" />
+        <arg name="competition_mode" default="true" />
+        <arg name="two_robots" value="true" />
+    </include>
+
+</launch>
